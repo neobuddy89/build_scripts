@@ -90,12 +90,16 @@ on property:dev.bootcomplete=1
     write /sys/kernel/state_helper/batt_level_cri 1
     write /sys/kernel/state_helper/batt_level_eco 15
 
-    # i/o scheduler
+    # I/O
     setprop sys.io.scheduler "bfq"
     write /sys/block/mmcblk0/queue/scheduler bfq
+    write /sys/block/mmcblk0/queue/read_ahead_kb 128
+    write /sys/block/mmcblk0/queue/rq_affinity 0
+    write /sys/block/mmcblk0/queue/add_random 0
+    write /sys/block/mmcblk0/bdi/min_ratio 5
+    write /sys/class/mmc_host/mmc0/clk_scaling/scale_down_in_low_wr_load 1
+    write /sys/block/dm-0/queue/read_ahead_kb 128
+    write /sys/block/dm-0/queue/rq_affinity 0
 
     # Set idle GPU to 240 Mhz
     write /sys/class/kgsl/kgsl-3d0/default_pwrlevel 4
-
-    write /sys/block/mmcblk0/bdi/read_ahead_kb 128
-    write /sys/class/mmc_host/mmc0/clk_scaling/scale_down_in_low_wr_load 1

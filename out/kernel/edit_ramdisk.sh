@@ -22,9 +22,9 @@ cd /
 echo $(cat /tmp/boot.img-cmdline | sed -e 's/maxcpus=[^ ]\+//')>/tmp/boot.img-cmdline
 
 # Force Permissive on cmdline
-sed -ri 's/ enforcing=[0-1]//g' /tmp/boot.img-cmdline
-sed -ri 's/ androidboot.selinux=permissive|androidboot.selinux=enforcing|androidboot.selinux=disabled//g' /tmp/boot.img-cmdline
-echo $(cat /tmp/boot.img-cmdline) enforcing=0 androidboot.selinux=permissive >/tmp/boot.img-cmdline
+#sed -ri 's/ enforcing=[0-1]//g' /tmp/boot.img-cmdline
+#sed -ri 's/ androidboot.selinux=permissive|androidboot.selinux=enforcing|androidboot.selinux=disabled//g' /tmp/boot.img-cmdline
+#echo $(cat /tmp/boot.img-cmdline) enforcing=0 androidboot.selinux=permissive >/tmp/boot.img-cmdline
 
 #find busybox in /system
 bblocation=$(find /system/ -name 'busybox')
